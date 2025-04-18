@@ -21,9 +21,13 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 from .views import create_product
+from .views import delete_product
+from .views import product_list
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('create/', create_product, name='create_product'),
+    path('', product_list, name='product_list'),
+    path('delete/<int:product_id>/', delete_product, name='delete_product'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
