@@ -64,25 +64,22 @@ A simple Django project demonstrating basic CRUD (Create, Read, Update, Delete) 
 ```
 Django-Basic-Crud/
 ├── crud/
-│   ├── migrations/
+│   ├── crud/
+│   │   └── migrations/
+│   │   ├── __init__.py
+│   │   ├── admin.py
+│   │   ├── settings.py
+│   │   ├── forms.py  
+│   │   ├── models.py
+│   │   ├── tests.py
+│   │   ├── urls.py
+│   │   ├── views.py
+│   │   └── wsgi.py
 │   ├── templates/
-│   │   └── crud/
-│   │       ├── create_product.html
+│   │   └── create_product.html
 │   │       ├── product_list.html
+│   │       ├── delete_product.html
 │   │       └── update_product.html
-│   ├── __init__.py
-│   ├── admin.py
-│   ├── apps.py
-│   ├── models.py
-│   ├── tests.py
-│   ├── urls.py
-│   └── views.py
-├── crud_project/
-│   ├── __init__.py
-│   ├── asgi.py
-│   ├── settings.py
-│   ├── urls.py
-│   └── wsgi.py
 ├── db.sqlite3
 ├── manage.py
 └── requirements.txt
