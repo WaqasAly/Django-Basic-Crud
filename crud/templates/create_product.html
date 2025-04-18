@@ -10,5 +10,15 @@
         {{ form.as_p }}
         <button type="submit">Create</button>
     </form>
+    <a href="{% url 'product_list' %}">Cancel</a>
+    {% if error_message %}
+        <p style="color: red;">{{ error_message }}</p>
+    {% endif %}
+    {% if success_message %}
+        <p style="color: green;">{{ success_message }}</p>
+    {% endif %}
+    {% if form.non_field_errors %}
+        <p style="color: red;">{{ form.non_field_errors }}</p>
+    {% endif %}
 </body>
 </html>

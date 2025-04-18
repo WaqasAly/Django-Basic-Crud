@@ -7,7 +7,7 @@ def create_product(request):
         form = ProductForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('create_product')  # redirect to same or another view
+            return redirect('product_list')  # redirect to same or another view
     else:
         form = ProductForm()
     return render(request, 'create_product.html', {'form': form})
@@ -22,3 +22,14 @@ def delete_product(request, product_id):
 def product_list(request):
     products = Product.objects.all()
     return render(request, 'product_list.html', {'products': products})
+
+def update_product(request, product_id):
+    product = get_object_or_404(Product, id=product_id)
+    if request.method == 'POST':
+        form = ProductForm(request.POST, instance=product)
+        if form.is_valid():
+            form.save()
+            return redirect('product_list')  # redirect to the product list or another view
+    else:
+        form = ProductForm(instance=product)
+    return render(request, 'update_product.html', {'form': form, 'product': product})
